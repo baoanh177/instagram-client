@@ -1,4 +1,5 @@
-import logo from "./Logo.png";
+import logo from "./logo.png"
+import logoShort from "./logo-short.png"
 import appStoreBanned from "./AppStore-Banned.png";
 import googlePlayBanned from "./GooglePlay-Banned.png";
 import homePhone from "./home-phones.png";
@@ -13,4 +14,5 @@ export const images = {
   homePhoneImage01,
   homePhoneImage02,
   logoFacebook,
+  logoShort
 };
