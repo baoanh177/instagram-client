@@ -10,6 +10,10 @@ import AuthMiddleware from "../middlewares/AuthMiddleware";
 import GuestMiddleware from "../middlewares/GuestMiddleware";
 import AuthLayout from "../layouts/Auth";
 import Verify from "../pages/Verify";
+import Explore from "../pages/Explore/Explore";
+import Reels from "../pages/Reels/Reels";
+import Messages from "../pages/Messages/Messages";
+import Create from "../pages/Create/Create";
 
 const renderRoutes = (routes: IRoute[], initPath = "/") => {
   return (
@@ -58,6 +62,23 @@ const routes: IRoute[] = [
       {
         path: "/",
         element: Home,
+      },
+      {
+        path: "/explore",
+        element: Explore,
+      },
+      {
+        path: "/reels",
+        element: Reels,
+      },
+      {
+        path: "/messages",
+        element: Messages,
+        middleware: AuthMiddleware
+      },
+      {
+        path: "/create",
+        element: Create,
       },
       {
         path: "/profile",
