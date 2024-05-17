@@ -42,7 +42,7 @@ const Register = () => {
                   src="../../../public/assest/icons/icon-fb.png"
                   className="w-[13px] mr-1"
                   alt=""
-                />{" "}
+                />
                 Đăng nhập bằng Facebook
               </button>
               <div className="text-with-line relative mt-5">
