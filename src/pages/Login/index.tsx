@@ -1,20 +1,42 @@
-import { useEffect, useState } from "react"
-import { images } from "../../assets/images"
+import { useEffect, useState } from "react";
+import { images } from "../../assets/images";
+import { Formik, Form, Field, ErrorMessage, FormikHelpers } from "formik";
+import * as Yup from 'yup';
+
+interface LoginFormValues {
+    email: string;
+    password: string;
+}
 
 const Login = () => {
-    const [imagePhone, setImagePhone] = useState(images.homePhoneImage01)
-    const [fadeIn, setFadeIn] = useState(true)
+    const [imagePhone, setImagePhone] = useState(images.homePhoneImage01);
+    const [fadeIn, setFadeIn] = useState(true);
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setFadeIn(false)
+            setFadeIn(false);
             setTimeout(() => {
-                setImagePhone(prevImage => prevImage === images.homePhoneImage01 ? images.homePhoneImage02 : images.homePhoneImage01)
-                setFadeIn(true)
-            }, 100)
-        }, 3000)
-        return () => clearInterval(interval)
-    }, [])
+                setImagePhone(prevImage => prevImage === images.homePhoneImage01 ? images.homePhoneImage02 : images.homePhoneImage01);
+                setFadeIn(true);
+            }, 100);
+        }, 3000);
+        return () => clearInterval(interval);
+    }, []);
+
+    const validationSchema = Yup.object().shape({
+        email: Yup.string()
+            .email('Email không hợp lệ')
+            .required('Vui lòng nhập email'),
+        password: Yup.string()
+            .min(6, 'Mật khẩu phải có ít nhất 6 ký tự')
+            .required('Vui lòng nhập mật khẩu'),
+    });
+
+    const handleSubmit = (values: LoginFormValues, { setSubmitting }: FormikHelpers<LoginFormValues>) => {
+        console.log(values);
+
+        setSubmitting(false);
+    };
 
     return (
         <>
@@ -27,24 +49,40 @@ const Login = () => {
                         <img src={imagePhone} alt="Home Phone Image" />
                     </div>
                 </div>
-                <div className=" lg:flex lg:flex-col lg:items-center lg:justify-center lg:space-y-8 lg:w-full mx-auto w-[360px]">
+                <div className="lg:flex lg:flex-col lg:items-center lg:justify-center lg:space-y-8 lg:w-full mx-auto w-[360px]">
                     <div className="w-full flex flex-col items-center space-y-4 border p-6 rounded">
                         <div>
                             <img src={images.logo} alt="Instagram Logo" className="py-5 w-[125px]" />
                         </div>
-                        <form className="w-full flex flex-col space-y-2">
-                            <input
-                                type="text"
-                                placeholder="Số điện thoại, tên người dùng hoặc email"
-                                className="p-2 border border-gray-300 rounded"
-                            />
-                            <input
-                                type="password"
-                                placeholder="Mật khẩu"
-                                className="p-2 border border-gray-300 rounded"
-                            />
-                            <button className="p-2 bg-blue-400 text-white rounded">Đăng nhập</button>
-                        </form>
+                        <Formik
+                            initialValues={{ email: '', password: '' }}
+                            validationSchema={validationSchema}
+                            onSubmit={handleSubmit}
+                        >
+                            {({ isSubmitting }) => (
+                                <Form className="w-full flex flex-col space-y-2">
+                                    <Field
+                                        type="text"
+                                        name="email"
+                                        placeholder="Số điện thoại, tên người dùng hoặc email"
+                                        className="p-2 border border-gray-300 rounded"
+                                    />
+                                    <ErrorMessage name="email" component="div" className="text-red-500" />
+
+                                    <Field
+                                        type="password"
+                                        name="password"
+                                        placeholder="Mật khẩu"
+                                        className="p-2 border border-gray-300 rounded"
+                                    />
+                                    <ErrorMessage name="password" component="div" className="text-red-500" />
+
+                                    <button type="submit" className="p-2 bg-blue-400 text-white rounded" disabled={isSubmitting}>
+                                        Đăng nhập
+                                    </button>
+                                </Form>
+                            )}
+                        </Formik>
                         <div className="w-full flex items-center my-4">
                             <div className="flex-grow border-t border-gray-300"></div>
                             <span className="mx-2 text-gray-500">OR</span>
@@ -73,6 +111,7 @@ const Login = () => {
                 </div>
             </div>
         </>
-    )
-}
-export default Login
+    );
+};
+
+export default Login;
