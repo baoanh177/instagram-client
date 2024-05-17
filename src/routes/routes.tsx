@@ -9,6 +9,7 @@ import Login from "../pages/Login";
 import AuthMiddleware from "../middlewares/AuthMiddleware";
 import GuestMiddleware from "../middlewares/GuestMiddleware";
 import AuthLayout from "../layouts/Auth";
+import Verify from "../pages/Verify";
 
 const renderRoutes = (routes: IRoute[], initPath = "/") => {
   return (
@@ -71,6 +72,12 @@ const routes: IRoute[] = [
     middleware: GuestMiddleware,
     layout: AuthLayout
   },
+  {
+    path: "/verify",
+    element: Verify,
+    middleware: GuestMiddleware,
+    layout: AuthLayout
+  }
 ];
 
 export { routes, renderRoutes };
