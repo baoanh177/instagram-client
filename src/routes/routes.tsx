@@ -16,7 +16,7 @@ import Reels from "../pages/Reels/Reels";
 import Messages from "../pages/Messages/Messages";
 import Create from "../pages/Create/Create";
 import Register from "../pages/Register/Register";
-
+import ForgotPassword from "../pages/ForgotPassword/ForgotPassword";
 
 const renderRoutes = (routes: IRoute[], initPath = "/") => {
   return (
@@ -89,7 +89,7 @@ const routes: IRoute[] = [
       {
         path: "/messages",
         element: Messages,
-        middleware: AuthMiddleware
+        middleware: AuthMiddleware,
       },
       {
         path: "/create",
@@ -118,8 +118,14 @@ const routes: IRoute[] = [
     path: "/verify",
     element: Verify,
     middleware: GuestMiddleware,
-    layout: AuthLayout
-  }
+    layout: AuthLayout,
+  },
+  {
+    path: "/password/reset",
+    element: ForgotPassword,
+    middleware: GuestMiddleware,
+    layout: AuthLayout,
+  },
 ];
 
 export { routes, renderRoutes };

@@ -52,7 +52,6 @@ const Register = () => {
             </div>
 
             <form
-              method="post"
               onSubmit={formik.handleSubmit}
               className="w-full h-[300px] md:w-[268px] flex flex-col space-y-2 mt-7 "
             >
