@@ -9,6 +9,7 @@ import Login from "../pages/Login";
 import AuthMiddleware from "../middlewares/AuthMiddleware";
 import GuestMiddleware from "../middlewares/GuestMiddleware";
 import AuthLayout from "../layouts/Auth";
+import Register from "../pages/Register/Register";
 
 const renderRoutes = (routes: IRoute[], initPath = "/") => {
   return (
@@ -21,7 +22,7 @@ const renderRoutes = (routes: IRoute[], initPath = "/") => {
           path,
         } = route;
 
-        const completePath = (initPath + path).replaceAll("//", "/")
+        const completePath = (initPath + path).replaceAll("//", "/");
         return (
           <Fragment key={index}>
             <Route path="*" element={<NotFound />} />
@@ -29,18 +30,30 @@ const renderRoutes = (routes: IRoute[], initPath = "/") => {
               <Route path="/" element={<Layout />}>
                 {Middleware ? (
                   <Route path="/" element={<Middleware />}>
-                    {Component ? <Route path={completePath} element={<Component />} /> : renderRoutes(route.pages ?? [], completePath)}
+                    {Component ? (
+                      <Route path={completePath} element={<Component />} />
+                    ) : (
+                      renderRoutes(route.pages ?? [], completePath)
+                    )}
                   </Route>
+                ) : Component ? (
+                  <Route path={completePath} element={<Component />} />
                 ) : (
-                  Component ? <Route path={completePath} element={<Component />} /> : renderRoutes(route.pages ?? [], completePath)
+                  renderRoutes(route.pages ?? [], completePath)
                 )}
               </Route>
             ) : Middleware ? (
               <Route path="/" element={<Middleware />}>
-                {Component ? <Route path={completePath} element={<Component />} /> : renderRoutes(route.pages ?? [], completePath)}
+                {Component ? (
+                  <Route path={completePath} element={<Component />} />
+                ) : (
+                  renderRoutes(route.pages ?? [], completePath)
+                )}
               </Route>
+            ) : Component ? (
+              <Route path={completePath} element={<Component />} />
             ) : (
-              Component ? <Route path={completePath} element={<Component />} /> : renderRoutes(route.pages ?? [], completePath)
+              renderRoutes(route.pages ?? [], completePath)
             )}
           </Fragment>
         );
@@ -61,7 +74,7 @@ const routes: IRoute[] = [
       {
         path: "/profile",
         element: Profile,
-        middleware: AuthMiddleware
+        middleware: AuthMiddleware,
       },
     ],
   },
@@ -69,7 +82,13 @@ const routes: IRoute[] = [
     path: "/login",
     element: Login,
     middleware: GuestMiddleware,
-    layout: AuthLayout
+    layout: AuthLayout,
+  },
+  {
+    path: "/register",
+    element: Register,
+    middleware: GuestMiddleware,
+    layout: AuthLayout,
   },
 ];
 
