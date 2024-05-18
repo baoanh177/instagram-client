@@ -23,8 +23,7 @@ const Register = () => {
   });
   return (
     <div className="max-w-screen-lg m-auto">
-      {/*  */}
-      <div className="w-[350px] h-[676px] md:w-[350px] py-8 m-auto rounded border-1 border-solid border-[#ddd] flex flex-col items-center">
+      <div className="w-[350px] h-[676px] md:w-[350px] py-8 m-auto rounded border border-solid border-[#ddd] flex flex-col items-center mt-5">
         <img
           className="w-[175px] h-[71px] mt-[37px] "
           src="../../../public/assest/images/logo.png"
@@ -35,20 +34,18 @@ const Register = () => {
             <span className="text-base text-center leading-5 font-sans text-[#737373] block">
               Đăng ký để xem ảnh và video từ bạn bè.
             </span>
-            <button className="w-full py-2 bg-[#0095f6] border-none text-sm font-extrabold text-white rounded mt-4">
+            <button className="w-[268px] h-[34px] bg-[#0095f6] border-none text-sm font-extrabold text-white rounded mt-4 flex items-center justify-center gap-2">
               <img
                 src="../../../public/assest/icons/icon-fb.png"
-                className="w-[13px] mr-1"
+                className="w-[13px]"
                 alt=""
               />
               Đăng nhập bằng Facebook
             </button>
-            <div className="text-with-line relative mt-5">
-              <hr className="centered-line border border-solid border-[#DBDBDB]" />
-
-              <span className="absolute top-[-65%] left-[35%] block px-4 text-sm font-medium text-[#737373] bg-[#fff]">
-                HOẶC
-              </span>
+            <div className="w-full flex items-center my-4">
+              <div className="flex-grow border-t border-gray-300"></div>
+              <span className="mx-2 text-gray-500">Hoặc</span>
+              <div className="flex-grow border-t border-gray-300"></div>
             </div>
 
             <form
@@ -139,7 +136,7 @@ const Register = () => {
         </div>
       </div>
       {/*  */}
-      <div className="border-1 border-solid border-[#ddd] py-5  rounded text-center w-[350px] m-auto mt-4">
+      <div className="border border-solid border-[#ddd] py-5  rounded text-center w-[350px] m-auto mt-4">
         Bạn đã có tài khoản?
         <Link
           className="px-1 text-[#0095f6] text-lg no-underline"
@@ -148,7 +145,6 @@ const Register = () => {
           Đăng nhập
         </Link>
       </div>
-
       <div className="w-[350px] m-auto  flex flex-col items-center justify-center space-y-2 mt-4">
         <div className="text-sm pb-5">Tải ứng dụng</div>
         <div className="flex space-x-2">
