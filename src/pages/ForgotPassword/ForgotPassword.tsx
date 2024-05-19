@@ -4,10 +4,12 @@ import * as Yup from "yup";
 const ForgotPassword = () => {
   const formik = useFormik({
     initialValues: {
-      mobileOrEmail: "",
+      email: "",
     },
     validationSchema: Yup.object({
-      mobileOrEmail: Yup.string().required("Email is required"),
+      email: Yup.string()
+        .email("Invalid email address")
+        .required("Email is required"),
     }),
     onSubmit: (values) => {
       console.log(":", values);
@@ -52,9 +54,9 @@ const ForgotPassword = () => {
               placeholder="Email"
               className=" w-full p-2.5 bg-[#FAFAFA] text-[14px] border border-solid border-[#ddd] rounded "
             />
-            {formik.touched.mobileOrEmail && formik.errors.mobileOrEmail ? (
+            {formik.touched.email && formik.errors.email ? (
               <div className="text-[12px] text-red-500">
-                {formik.errors.mobileOrEmail}
+                {formik.errors.email}
               </div>
             ) : null}
             <button
