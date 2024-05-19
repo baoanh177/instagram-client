@@ -7,9 +7,7 @@ const ForgotPassword = () => {
       mobileOrEmail: "",
     },
     validationSchema: Yup.object({
-      mobileOrEmail: Yup.string().required(
-        "Số di động hoặc email không được để trống"
-      ),
+      mobileOrEmail: Yup.string().required("Email is required"),
     }),
     onSubmit: (values) => {
       console.log(":", values);
@@ -37,11 +35,11 @@ const ForgotPassword = () => {
         />
         <div className="w-[300px] m-auto mt-3 ">
           <p className="block text-center text-base font-semibold">
-            Bạn gặp sự cố khi đăng nhập?
+            Trouble logging in?
           </p>
           <p className="block m-auto mt-3 text-[#737373] text-center  indent-px text-sm">
-            Nhập email, số điện thoại hoặc tên người dùng của bạn và chúng tôi
-            sẽ gửi cho bạn một liên kết để truy cập lại vào tài khoản.
+            Enter your email, phone, or username and we'll send you a link to
+            get back into your account.
           </p>
           <form
             onSubmit={formik.handleSubmit}
@@ -51,7 +49,7 @@ const ForgotPassword = () => {
             <input
               type="text"
               name="mobieEmail"
-              placeholder="Email hoặc điện thoại tên người dùng"
+              placeholder="Email"
               className=" w-full p-2.5 bg-[#FAFAFA] text-[14px] border border-solid border-[#ddd] rounded "
             />
             {formik.touched.mobileOrEmail && formik.errors.mobileOrEmail ? (
@@ -63,13 +61,13 @@ const ForgotPassword = () => {
               type="submit"
               className="w-full p-2 bg-[#0095f6] border-none text-white rounded block mt-5"
             >
-              Gửi liên kết đăng nhập
+              Send login link
             </button>
             <Link
               to={""}
               className="block text-[12px] text-[#00376B] text-center mt-2"
             >
-              Bạn không thể đặt lại mật khẩu?
+              Can't reset your password?
             </Link>
           </form>
           <div className="w-full flex items-center my-4">
@@ -81,14 +79,14 @@ const ForgotPassword = () => {
             to={"/register"}
             className="block text-[14px] font-semibold text-center"
           >
-            Tạo tài khoản mới
+            Create new accout
           </Link>
         </div>
         <Link
           to={"/login"}
           className=" block w-full h-[44px] bg-[#FAFAFA] text-center text-[14px] font-semibold leading-10 border border-s-[#DBDBDB] mt-[60px] "
         >
-          Quay lại đăng nhập
+          Back to login
         </Link>
       </div>
     </>
