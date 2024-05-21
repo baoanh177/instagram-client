@@ -6,7 +6,6 @@ import DefaultLayout from "../layouts/Default";
 import Home from "../pages/Home";
 import Profile from "../pages/Profile";
 import Login from "../pages/Login";
-import AuthMiddleware from "../middlewares/AuthMiddleware";
 import GuestMiddleware from "../middlewares/GuestMiddleware";
 import AuthLayout from "../layouts/Auth";
 
@@ -17,6 +16,9 @@ import Messages from "../pages/Messages/Messages";
 import Create from "../pages/Create/Create";
 import Register from "../pages/Register/Register";
 import ForgotPassword from "../pages/ForgotPassword/ForgotPassword";
+import Status from "../pages/Status";
+import Saved from "../pages/Saved";
+import Tagged from "../pages/Tagged";
 
 const renderRoutes = (routes: IRoute[], initPath = "/") => {
   return (
@@ -89,7 +91,7 @@ const routes: IRoute[] = [
       {
         path: "/messages",
         element: Messages,
-        middleware: AuthMiddleware,
+        // middleware: AuthMiddleware,
       },
       {
         path: "/create",
@@ -97,8 +99,22 @@ const routes: IRoute[] = [
       },
       {
         path: "/profile",
-        element: Profile,
-        middleware: AuthMiddleware,
+        layout: Profile,
+        // middleware: AuthMiddleware,
+        pages: [
+          {
+            path: '/',
+            element: Status,
+          },
+          {
+            path: '/tagged',
+            element: Tagged,
+          },
+          {
+            path: '/saved',
+            element: Saved,
+          },
+        ]
       },
     ],
   },
