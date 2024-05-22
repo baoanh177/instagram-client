@@ -8,7 +8,6 @@ import Profile from "../pages/Profile";
 import Login from "../pages/Login";
 import GuestMiddleware from "../middlewares/GuestMiddleware";
 import AuthLayout from "../layouts/Auth";
-
 import Verify from "../pages/Verify";
 import Explore from "../pages/Explore/Explore";
 import Reels from "../pages/Reels/Reels";
