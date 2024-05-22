@@ -8,7 +8,7 @@ const DefaultLayout = () => {
   return <>
     <div className="flex">
       <Sidebar menuDetail={menuDetail} setMenuDetail={setMenuDetail} />
-      <div className={clsx("transition-size", menuDetail ? "ml-20" : "ml-[244px]")}>
+      <div className={clsx("transition-size", menuDetail ? "ml-20" : "ml-[244px] w-full")}>
         <Outlet />
       </div>
     </div>

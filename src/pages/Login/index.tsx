@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { images } from "../../assets/images";
 import { Formik, Form, Field, ErrorMessage, FormikHelpers } from "formik";
 import * as Yup from "yup";
+import { Link } from "react-router-dom";
 
 interface LoginFormValues {
   email: string;
@@ -29,19 +30,18 @@ const Login = () => {
 
   const validationSchema = Yup.object().shape({
     email: Yup.string()
-      .email("Email không hợp lệ")
-      .required("Vui lòng nhập email"),
+      .email("Invalid email")
+      .required("Please enter email"),
     password: Yup.string()
-      .min(6, "Mật khẩu phải có ít nhất 6 ký tự")
-      .required("Vui lòng nhập mật khẩu"),
+      .min(6, "Passwords must be at least 6 characters")
+      .required("Please enter password"),
   });
 
   const handleSubmit = (
     values: LoginFormValues,
     { setSubmitting }: FormikHelpers<LoginFormValues>
   ) => {
-    console.log(values);
-
+    values
     setSubmitting(false);
   };
 
@@ -53,11 +53,10 @@ const Login = () => {
             <img src={images.homePhone} alt="Home Phone" />
           </div>
           <div
-            className={`relative top-6 left-[49px] ${
-              fadeIn
-                ? "opacity-100 transition-opacity duration-500"
-                : "opacity-0"
-            }`}
+            className={`relative top-6 left-[49px] ${fadeIn
+              ? "opacity-100 transition-opacity duration-500"
+              : "opacity-0"
+              }`}
           >
             <img src={imagePhone} alt="Home Phone Image" />
           </div>
@@ -81,33 +80,33 @@ const Login = () => {
                   <Field
                     type="text"
                     name="email"
-                    placeholder="Số điện thoại, tên người dùng hoặc email"
-                    className="p-2 border border-gray-300 rounded"
+                    placeholder="Username or email"
+                    className="p-3 border border-gray-300 rounded text-[14px] "
                   />
                   <ErrorMessage
                     name="email"
                     component="div"
-                    className="text-red-500"
+                    className="text-red-500 pl-2 text-xs"
                   />
 
                   <Field
                     type="password"
                     name="password"
-                    placeholder="Mật khẩu"
-                    className="p-2 border border-gray-300 rounded"
+                    placeholder="password"
+                    className="p-3 border border-gray-300 rounded text-[14px]"
                   />
                   <ErrorMessage
                     name="password"
                     component="div"
-                    className="text-red-500"
+                    className="text-red-500 pl-2 text-xs"
                   />
 
                   <button
                     type="submit"
-                    className="p-2 bg-blue-400 text-white rounded"
+                    className="p-2 bg-blue-400 text-white rounded hover:bg-blue-300"
                     disabled={isSubmitting}
                   >
-                    Đăng nhập
+                    Login
                   </button>
                 </Form>
               )}
@@ -118,23 +117,23 @@ const Login = () => {
               <div className="flex-grow border-t border-gray-300"></div>
             </div>
             <div className="flex items-center space-x-2">
-              <img className="w-5" src={images.logoFacebook} alt="" />
+              <img className="w-5" src={images.logoGoogle} alt="" />
               <a href="#" className="text-blue-600">
-                Đăng nhập bằng Facebook
+                Sign in with google
               </a>
             </div>
-            <a href="#" className="text-sm">
-              Quên mật khẩu?
-            </a>
+            <Link to='/password/reset' className="text-sm">
+              Forgot password?
+            </Link>
           </div>
-          <div className="border border-gray-300 p-4 rounded text-center w-full">
-            Bạn chưa có tài khoản ư?{" "}
-            <a className="px-1 text-blue-500 text-lg" href="">
-              Đăng ký
-            </a>
+          <div className="border border-gray-300 text-[16px] p-4 rounded text-center w-full">
+            Create new account?{" "}
+            <Link to="/register" className="px-1 text-blue-500 text-[16px]">
+             Sign Up
+            </Link>
           </div>
-          <div className="w-full flex flex-col items-center space-y-2 mt-4">
-            <div className="text-sm pb-5">Tải ứng dụng</div>
+          <div className="w-full flex flex-col items-center mt-4">
+            <div className="text-sm pb-5">Get the app.</div>
             <div className="flex space-x-2">
               <div className="w-32 h-10 bg-gray-300 flex items-center justify-center">
                 <img

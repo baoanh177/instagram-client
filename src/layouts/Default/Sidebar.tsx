@@ -1,5 +1,4 @@
 import { Link, useNavigate } from "react-router-dom";
-import { images } from "../../assets/images";
 import { Dispatch, ReactNode, SetStateAction } from "react";
 
 // Icons
@@ -7,6 +6,7 @@ import { icons } from "../../assets/icons";
 import clsx from "clsx";
 import { Tooltip } from "antd";
 import MenuDetail from "./MenuDetail";
+import { images } from "../../assets/images";
 
 type MenuItem = {
   key: string;
