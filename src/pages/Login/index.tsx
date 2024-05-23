@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import { images } from "../../assets/images";
 import { Formik, Form, Field, ErrorMessage, FormikHelpers } from "formik";
 import * as Yup from "yup";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../stores/stores";
+import { login } from "../../stores/thunks/auth.thunk";
 
 interface LoginFormValues {
   email: string;
@@ -11,6 +14,7 @@ interface LoginFormValues {
 const Login = () => {
   const [imagePhone, setImagePhone] = useState(images.homePhoneImage01);
   const [fadeIn, setFadeIn] = useState(true);
+  const dispatch = useDispatch<AppDispatch>()
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -41,7 +45,9 @@ const Login = () => {
     { setSubmitting }: FormikHelpers<LoginFormValues>
   ) => {
     console.log(values);
-
+    dispatch(login({
+      body: values,
+    }))
     setSubmitting(false);
   };
 
