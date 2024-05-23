@@ -12,8 +12,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { setTheme } from "../../stores/slices/app.slice";
 
 const MoreMenu = () => {
-  const dispatch = useDispatch()
-  const { theme } = useSelector((state: any) => state.app)
+  const dispatch = useDispatch();
+  const { theme } = useSelector((state: any) => state.app);
   const menuItems: MenuItem[] = [
     {
       key: "settings",
@@ -37,7 +37,7 @@ const MoreMenu = () => {
       key: "appearance",
       label: "Switch appearance",
       onClick: () => {
-        dispatch(setTheme(theme == "dark" ? "light" : "dark"))
+        dispatch(setTheme(theme == "dark" ? "light" : "dark"));
       },
       icon:
         theme == "dark" ? (
@@ -56,8 +56,8 @@ const MoreMenu = () => {
 
   return (
     <>
-      <div className="absolute -top-3 left-0 -translate-y-full bg-gray-50 dark:bg-black min-w-72 overflow-hidden rounded-lg">
-        <ul className="p-2 flex flex-col gap-2 dark:bg-zinc-800 bg-white rounded-lg shadow border border-gray-100 dark:border-black">
+      <div className="absolute -top-3 left-0 -translate-y-full bg-gray-50 dark:bg-black min-w-72 overflow-hidden rounded-lg shadow">
+        <ul className="p-2 flex flex-col gap-2 dark:bg-zinc-800 bg-gray-50 rounded-lg shadow border border-gray-100 dark:border-black">
           {menuItems.map((item, index) => (
             <li
               key={index}
@@ -73,7 +73,7 @@ const MoreMenu = () => {
             </li>
           ))}
         </ul>
-        <div className="flex flex-col gap-2 p-2 bg-white dark:bg-zinc-800 rounded-lg shadow border border-gray-100 dark:border-black mt-2">
+        <div className="flex flex-col gap-2 p-2 bg-gray-50 dark:bg-zinc-800 rounded-lg shadow border border-gray-100 dark:border-black mt-2">
           <div className="flex items-center gap-2 p-3 cursor-pointer rounded-lg hover:bg-gray-100 dark:hover:bg-opacity-5 transition-colors">
             Switch accounts
           </div>

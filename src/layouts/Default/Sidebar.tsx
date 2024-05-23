@@ -1,12 +1,9 @@
 import { Link, useNavigate } from "react-router-dom";
 import { images } from "../../assets/images";
 import { Dispatch, SetStateAction, useState } from "react";
-
-// Icons
-import { icons } from "../../assets/icons";
 import clsx from "clsx";
 import { Tooltip } from "antd";
-import MenuDetail from "./MenuDetail"
+import MenuDetail from "./MenuDetail";
 import SearchInput from "../../components/common/SearchInput";
 import MoreMenu from "./MoreMenu";
 import { MenuItem } from "../../models/shared/menu.model";
@@ -14,53 +11,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch } from "../../stores/stores";
 import { setMoreMenu } from "../../stores/slices/app.slice";
 
-const menuItems: MenuItem[] = [
-  {
-    key: "home",
-    label: "Home",
-    path: "/",
-    icon: <img src={icons.home} alt="home" />,
-  },
-  {
-    key: "search",
-    label: "Search",
-    icon: <img src={icons.search} alt="search" />,
-  },
-  {
-    key: "explore",
-    label: "Explore",
-    path: "/explore",
-    icon: <img src={icons.explore} alt="explore" />,
-  },
-  {
-    key: "reels",
-    label: "Reels",
-    path: "/reels",
-    icon: <img src={icons.reels} alt="reels" />,
-  },
-  {
-    key: "messages",
-    label: "Messages",
-    path: "/messages",
-    icon: <img src={icons.messages} alt="messages" />,
-  },
-  {
-    key: "notifications",
-    label: "Notifications",
-    icon: <img src={icons.heart} alt="notifications" />,
-  },
-  {
-    key: "create",
-    label: "Create",
-    icon: <img src={icons.create} alt="create" />,
-  },
-  {
-    key: "profile",
-    label: "Profile",
-    path: "/profile",
-    icon: <img src={icons.profile} alt="profile" />,
-  },
-];
+// Icons
+import { icons } from "../../assets/icons";
+import { FaRegUserCircle } from "react-icons/fa";
 
 const Sidebar = ({
   menuDetail,
@@ -69,10 +22,92 @@ const Sidebar = ({
   menuDetail: string;
   setMenuDetail: Dispatch<SetStateAction<string>>;
 }) => {
-  const { moreMenu: moreMenuState } = useSelector((state: any) => state.app);
+  const { moreMenu: moreMenuState, theme } = useSelector(
+    (state: any) => state.app
+  );
   const navigate = useNavigate();
   const [activeMenu, setActiveMenu] = useState<string>("");
-  const dispatch = useDispatch<AppDispatch>()
+  const dispatch = useDispatch<AppDispatch>();
+
+  const menuItems: MenuItem[] = [
+    {
+      key: "home",
+      label: "Home",
+      path: "/",
+      icon: (
+        <img src={theme == "dark" ? icons.homeLight : icons.home} alt="home" />
+      ),
+    },
+    {
+      key: "search",
+      label: "Search",
+      icon: (
+        <img
+          src={theme == "dark" ? icons.searchLight : icons.search}
+          alt="search"
+        />
+      ),
+    },
+    {
+      key: "explore",
+      label: "Explore",
+      path: "/explore",
+      icon: (
+        <img
+          src={theme == "dark" ? icons.exploreLight : icons.explore}
+          alt="explore"
+        />
+      ),
+    },
+    {
+      key: "reels",
+      label: "Reels",
+      path: "/reels",
+      icon: (
+        <img
+          src={theme == "dark" ? icons.reelsLight : icons.reels}
+          alt="reels"
+        />
+      ),
+    },
+    {
+      key: "messages",
+      label: "Messages",
+      path: "/messages",
+      icon: (
+        <img
+          src={theme == "dark" ? icons.messagesLight : icons.messages}
+          alt="messages"
+        />
+      ),
+    },
+    {
+      key: "notifications",
+      label: "Notifications",
+      icon: (
+        <img
+          src={theme == "dark" ? icons.heartLight : icons.heart}
+          alt="notifications"
+        />
+      ),
+    },
+    {
+      key: "create",
+      label: "Create",
+      icon: (
+        <img
+          src={theme == "dark" ? icons.createLight : icons.create}
+          alt="create"
+        />
+      ),
+    },
+    {
+      key: "profile",
+      label: "Profile",
+      path: "/profile",
+      icon: <FaRegUserCircle className="dark:text-white text-2xl" />,
+    },
+  ];
 
   return (
     <>
@@ -92,7 +127,15 @@ const Sidebar = ({
         >
           <Link to="/">
             <img
-              src={menuDetail ? images.logoShort : images.logo}
+              src={
+                menuDetail
+                  ? theme == "dark"
+                    ? images.logoShortLight
+                    : images.logoShort
+                  : theme == "dark"
+                  ? images.logoLight
+                  : images.logo
+              }
               alt="Instagram"
               className="hidden md:block"
             />
@@ -105,10 +148,10 @@ const Sidebar = ({
                 <li
                   key={index}
                   className={clsx(
-                    "flex gap-4 p-3 cursor-pointer rounded-lg md:hover:bg-gray-100 transition-colors",
+                    "flex gap-4 p-3 cursor-pointer rounded-lg md:hover:bg-gray-100 dark:hover:bg-opacity-10 transition-colors",
                     menuDetail && "justify-center",
                     menuDetail == item.key && "md:border-2 md:border-gray-500",
-                    activeMenu == item.key && !menuDetail && "md:bg-gray-100",
+                    activeMenu == item.key && !menuDetail && "md:bg-gray-100 dark:bg-opacity-15",
                     !item.path && "hidden md:flex"
                   )}
                   onClick={() => {
@@ -146,12 +189,15 @@ const Sidebar = ({
             <div className="hidden md:block relative mt-auto">
               <div
                 className={clsx(
-                  "more-menu-toggle flex gap-4 p-3 cursor-pointer rounded hover:bg-gray-100 transition-colors",
+                  "more-menu-toggle flex gap-4 p-3 cursor-pointer rounded hover:bg-gray-100 dark:bg-opacity-10 transition-colors",
                   menuDetail && "justify-center"
                 )}
                 onClick={() => dispatch(setMoreMenu(null))}
               >
-                <img src={icons.bar} alt="" />
+                <img
+                  src={theme == "dark" ? icons.barLight : icons.bar}
+                  alt=""
+                />
                 {!menuDetail && <div>More</div>}
               </div>
               {moreMenuState && <MoreMenu />}

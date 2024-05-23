@@ -14,7 +14,14 @@ import status from "./Posts.png";
 import saved from "./Save.png";
 import tagged from "./Tagged.png";
 import iconLink from "./blueLink.png";
-import defaultAvatar from "./deafault-avatar.png"
+import defaultAvatar from "./deafault-avatar.png";
+import searchLight from "./search-light.svg";
+import exploreLight from "./explore-light.svg";
+import reelsLight from "./reels-light.svg";
+import messagesLight from "./messages-light.svg";
+import heartLight from "./heart-light.svg";
+import createLight from "./create-light.svg";
+import barLight from "./bar-light.svg";
 export const icons = {
   defaultAvatar,
   reels,
@@ -33,4 +40,11 @@ export const icons = {
   saved,
   tagged,
   iconLink,
+  searchLight,
+  exploreLight,
+  reelsLight,
+  messagesLight,
+  heartLight,
+  createLight,
+  barLight,
 };
