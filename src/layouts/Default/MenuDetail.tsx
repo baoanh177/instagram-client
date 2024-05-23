@@ -6,7 +6,7 @@ const MenuDetail = ({ title, content }: { title: string, content: ReactNode }) =
     <>
       <div
         className={clsx(
-          "absolute top-0 right-0 bottom-0 pt-3 w-96 rounded-e-2xl border-2 bg-white transition-all -z-10 shadow-lg",
+          "hidden md:block absolute top-0 right-0 bottom-0 pt-3 w-96 rounded-e-2xl border-2 bg-white transition-all shadow-lg",
           title ? "opacity-100 translate-x-full visible" : "opacity-0 translate-x-0 invisible"
         )}
       >
