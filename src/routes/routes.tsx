@@ -1,5 +1,5 @@
 import { Route } from "react-router-dom";
-import { IRoute } from "../models/shared/routes";
+import { IRoute } from "../models/shared/routes.model";
 import { Fragment } from "react/jsx-runtime";
 import NotFound from "../pages/Error/NotFound";
 import DefaultLayout from "../layouts/Default";
