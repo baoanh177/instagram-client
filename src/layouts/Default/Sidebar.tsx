@@ -6,7 +6,7 @@ import { Dispatch, SetStateAction, useState } from "react";
 import { icons } from "../../assets/icons";
 import clsx from "clsx";
 import { Tooltip } from "antd";
-import MenuDetail from "./MenuDetail";
+import MenuDetail from "./MenuDetail"
 import SearchInput from "../../components/common/SearchInput";
 import MoreMenu from "./MoreMenu";
 import { MenuItem } from "../../models/shared/menu.model";

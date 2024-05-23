@@ -10,7 +10,7 @@ const DefaultLayout = () => {
         <div className="md:w-[244px]">
           <Sidebar menuDetail={menuDetail} setMenuDetail={setMenuDetail} />
         </div>
-        <div>
+        <div className="w-full">
           <Outlet />
         </div>
       </div>
