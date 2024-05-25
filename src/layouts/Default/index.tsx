@@ -7,7 +7,7 @@ const DefaultLayout = () => {
   return (
     <>
       <div className="flex h-full">
-        <div className="md:w-[244px]">
+        <div className="lg:w-[244px]">
           <Sidebar menuDetail={menuDetail} setMenuDetail={setMenuDetail} />
         </div>
         <div className="w-full">

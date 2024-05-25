@@ -16,9 +16,4 @@ interface IThunkPayload {
   headers?: IFetchHeaders
 }
 
-enum Status {
-  IDLE = "idle", // ? rảnh
-  PENDING = "pending",
-  FULFILLED = "fulfilled",
-  REJECTED = "rejected"
-}
+

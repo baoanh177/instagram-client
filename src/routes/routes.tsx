@@ -123,33 +123,29 @@ const routes: IRoute[] = [
     ],
   },
   {
-    path: "/login",
-    element: Login,
+    path: "/",
     middleware: GuestMiddleware,
     layout: AuthLayout,
+    pages: [
+      {
+        path: "/login",
+        element: Login,
+      },
+      {
+        path: "/register",
+        element: Register,
+      },
+      {
+        path: "/verify",
+        element: Verify,
+      },
+      {
+        path: "/password/reset",
+        element: ForgotPassword,
+      }
+    ]
   },
-  {
-    path: "/500",
-    element: ServerError,
-  },
-  {
-    path: "/register",
-    element: Register,
-    middleware: GuestMiddleware,
-    layout: AuthLayout,
-  },
-  {
-    path: "/verify",
-    element: Verify,
-    middleware: GuestMiddleware,
-    layout: AuthLayout,
-  },
-  {
-    path: "/password/reset",
-    element: ForgotPassword,
-    middleware: GuestMiddleware,
-    layout: AuthLayout,
-  },
+  
 ];
 
 export { routes, renderRoutes };
