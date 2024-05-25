@@ -18,6 +18,7 @@ import ForgotPassword from "../pages/ForgotPassword/ForgotPassword";
 import Status from "../pages/Status";
 import Saved from "../pages/Saved";
 import Tagged from "../pages/Tagged";
+import ServerError from "../pages/Error/ServerError";
 
 const renderRoutes = (routes: IRoute[], initPath = "/") => {
   return (
@@ -33,7 +34,7 @@ const renderRoutes = (routes: IRoute[], initPath = "/") => {
         const completePath = (initPath + path).replaceAll("//", "/");
         return (
           <Fragment key={index}>
-            <Route path="*" element={<NotFound />} />
+            {/* <Route path="*" element={<NotFound />} /> */}
             {Layout ? (
               <Route path="/" element={<Layout />}>
                 {Middleware ? (
@@ -95,6 +96,10 @@ const routes: IRoute[] = [
       {
         path: "/create",
         element: Create,
+      },
+      {
+        path: "*",
+        element: NotFound,
       },
       {
         path: "/profile",
