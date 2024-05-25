@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { login, register } from "../thunks/auth.thunk";
+import { Status } from "../../models/index.model";
 
 const initialState = {
   isLogin: false,
@@ -7,7 +8,7 @@ const initialState = {
   status: Status.IDLE
 }
 
-const appSlice = createSlice({
+const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
@@ -48,4 +49,4 @@ const appSlice = createSlice({
   },
 })
 
-export { appSlice }
+export { authSlice }

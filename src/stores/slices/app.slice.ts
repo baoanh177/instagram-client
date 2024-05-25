@@ -4,7 +4,8 @@ const theme = JSON.parse(localStorage.getItem("theme")!)
 
 const initialState = {
   theme: theme ? theme : "light",
-  moreMenu: false
+  moreMenu: false,
+  loading: false
 }
 
 const appSlice = createSlice({
