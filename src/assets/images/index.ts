@@ -10,6 +10,8 @@ import logoGoogle from "./logo-google.png";
 import logoShort from "./logo-short.png";
 import logoLight from "./logo-light.svg";
 import logoShortLight from "./logo-short-light.svg";
+import imgLock from "./img-lock.png";
+import meta from "./meta.png";
 export const images = {
   logo,
   appStoreBanned,
@@ -22,6 +24,8 @@ export const images = {
   logoShort,
   // defaultAvatar,
   // plusIconInProfile,
+  imgLock,
+  meta,
   logoGoogle,
   logoLight,
   logoShortLight,

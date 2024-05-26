@@ -18,7 +18,10 @@ import ForgotPassword from "../pages/ForgotPassword/ForgotPassword";
 import Status from "../pages/Status";
 import Saved from "../pages/Saved";
 import Tagged from "../pages/Tagged";
-import ServerError from "../pages/Error/ServerError";
+import Parent from "../pages/EditProfile";
+import EditProfile from "../pages/EditProfile/EditProfile";
+import Notifications from "../pages/EditProfile/Notifications";
+import MutedAccounts from "../pages/EditProfile/MutedAccounts";
 
 const renderRoutes = (routes: IRoute[], initPath = "/") => {
   return (
@@ -107,18 +110,36 @@ const routes: IRoute[] = [
         // middleware: AuthMiddleware,
         pages: [
           {
-            path: '/',
+            path: "/",
             element: Status,
           },
           {
-            path: '/tagged',
+            path: "/tagged",
             element: Tagged,
           },
           {
-            path: '/saved',
+            path: "/saved",
             element: Saved,
           },
-        ]
+        ],
+      },
+      {
+        path: "/editprofile",
+        layout: Parent,
+        pages: [
+          {
+            path: "/",
+            element: EditProfile,
+          },
+          {
+            path: "/notifications",
+            element: Notifications,
+          },
+          {
+            path: "/mutedaccounts",
+            element: MutedAccounts,
+          },
+        ],
       },
     ],
   },
@@ -142,10 +163,9 @@ const routes: IRoute[] = [
       {
         path: "/password/reset",
         element: ForgotPassword,
-      }
-    ]
+      },
+    ],
   },
-  
 ];
 
 export { routes, renderRoutes };
