@@ -113,7 +113,7 @@ const Sidebar = ({
     <>
       <div
         className={clsx(
-          `more-menu fixed flex items-center h-12 border-t select-none transition-size bottom-0 right-0 left-0 
+          `more-menu fixed flex items-center h-12 border-t select-none transition-size bottom-0 right-0 left-0 bg-white dark:bg-black z-50 
           lg:items-stretch md:relative md:flex-col md:h-full md:px-3 md:pt-10 md:pb-5 border-r dark:border-gray-700`,
           menuDetail ? "md:w-20" : "md:w-20 lg:w-[244px]"
         )}

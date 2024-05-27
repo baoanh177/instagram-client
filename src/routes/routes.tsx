@@ -22,6 +22,7 @@ import Parent from "../pages/EditProfile";
 import EditProfile from "../pages/EditProfile/EditProfile";
 import Notifications from "../pages/EditProfile/Notifications";
 import MutedAccounts from "../pages/EditProfile/MutedAccounts";
+import ServerError from "../pages/Error/ServerError";
 
 const renderRoutes = (routes: IRoute[], initPath = "/") => {
   return (
@@ -75,6 +76,10 @@ const renderRoutes = (routes: IRoute[], initPath = "/") => {
 };
 
 const routes: IRoute[] = [
+  {
+    path: "500",
+    element: ServerError
+  },
   {
     path: "/",
     layout: DefaultLayout,
