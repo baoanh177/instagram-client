@@ -32,6 +32,10 @@ export const client = {
     if (!response.ok) {
       if (response.status == 401) {
         // Refresh Token
+      }else if(response.status == 403) {
+
+      }else if(response.status == 500) {
+        
       }
     }
     const data = await response.json();
