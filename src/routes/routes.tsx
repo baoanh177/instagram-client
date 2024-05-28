@@ -19,6 +19,7 @@ import Status from "../pages/Status";
 import Saved from "../pages/Saved";
 import Tagged from "../pages/Tagged";
 import ServerError from "../pages/Error/ServerError";
+import AuthMiddleware from "../middlewares/AuthMiddleware";
 
 const renderRoutes = (routes: IRoute[], initPath = "/") => {
   return (
@@ -75,6 +76,7 @@ const routes: IRoute[] = [
   {
     path: "/",
     layout: DefaultLayout,
+    middleware: AuthMiddleware,
     pages: [
       {
         path: "/",
@@ -91,7 +93,7 @@ const routes: IRoute[] = [
       {
         path: "/messages",
         element: Messages,
-        // middleware: AuthMiddleware,
+        middleware: AuthMiddleware,
       },
       {
         path: "/create",
@@ -104,7 +106,7 @@ const routes: IRoute[] = [
       {
         path: "/profile",
         layout: Profile,
-        // middleware: AuthMiddleware,
+        middleware: AuthMiddleware,
         pages: [
           {
             path: '/',

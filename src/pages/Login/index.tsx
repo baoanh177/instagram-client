@@ -16,7 +16,7 @@ const Login = () => {
   const [imagePhone, setImagePhone] = useState(images.homePhoneImage01);
   const [fadeIn, setFadeIn] = useState(true);
   const dispatch = useDispatch<AppDispatch>()
-
+  
   useEffect(() => {
     const interval = setInterval(() => {
       setFadeIn(false);
@@ -48,7 +48,10 @@ const Login = () => {
     console.log(values);
     dispatch(login({
       body: values,
-    }))
+    },
+    
+  ))
+  
     setSubmitting(false);
   };
 

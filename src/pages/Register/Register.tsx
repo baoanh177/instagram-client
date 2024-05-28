@@ -1,25 +1,30 @@
 import { Link } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage, FormikHelpers } from "formik";
 import * as Yup from "yup";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../stores/stores";
+import { register } from "../../stores/thunks/auth.thunk";
+
 const Register = () => {
+  const dispatch = useDispatch<AppDispatch>()
   const initialValues = {
     email: "",
-    username: "",
+    user_name: "",
     password: "",
-    confirmPassword: "",
+    confirm_password: "",
   };
   const validationSchema = Yup.object({
     email: Yup.string()
       .email("Invalid email address")
       .required("Email is required"),
-    username: Yup.string()
+    user_name: Yup.string()
       .min(6, "Username must be at least 6 characters")
       .required("Username is required"),
     password: Yup.string()
       .min(6, "Password must be at least 6 characters")
 
       .required("Password is required"),
-    confirmPassword: Yup.string()
+    confirm_password: Yup.string()
       .required("Confirm password is required")
       .oneOf([Yup.ref("password")], "Passwords must match"),
   });
@@ -28,6 +33,9 @@ const Register = () => {
     actions: FormikHelpers<typeof initialValues>
   ) => {
     console.log("Form values:", values);
+    dispatch(register({
+      body: values
+    }))
     actions.setSubmitting(false);
   };
 
@@ -78,11 +86,11 @@ const Register = () => {
                 <Field
                   type="text"
                   placeholder="User Name"
-                  name="username"
+                  name="user_name"
                   className="p-2.5 bg-[#FAFAFA] text-[12px] border border-solid border-[#ddd] rounded"
                 />
                 <ErrorMessage
-                  name="username"
+                  name="user_name"
                   component="div"
                   className="text-[12px] text-red-500 relative top-[-5px]"
                 />
@@ -101,12 +109,12 @@ const Register = () => {
 
                 <Field
                   type="password"
-                  name="confirmPassword"
+                  name="confirm_password"
                   placeholder="Confirm Password"
                   className="p-2.5 bg-[#FAFAFA] text-[12px] border border-solid border-[#ddd] rounded"
                 />
                 <ErrorMessage
-                  name="confirmPassword"
+                  name="confirm_password"
                   component="div"
                   className="text-[12px] text-red-500 relative top-[-5px]"
                 />
