@@ -10,9 +10,11 @@ import { GoReport } from "react-icons/go";
 import { CiDark } from "react-icons/ci";
 import { useDispatch, useSelector } from "react-redux";
 import { setTheme } from "../../stores/slices/app.slice";
+import { logout } from "../../stores/thunks/auth.thunk";
+import { AppDispatch } from "../../stores/stores";
 
 const MoreMenu = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const { theme } = useSelector((state: any) => state.app);
   const menuItems: MenuItem[] = [
     {
@@ -77,7 +79,7 @@ const MoreMenu = () => {
           <div className="flex items-center gap-2 p-3 cursor-pointer rounded-lg hover:bg-gray-100 dark:hover:bg-opacity-5 transition-colors">
             Switch accounts
           </div>
-          <div className="flex items-center gap-2 p-3 cursor-pointer rounded-lg hover:bg-gray-100 dark:hover:bg-opacity-5 transition-colors">
+          <div onClick={() => dispatch(logout())} className="flex items-center gap-2 p-3 cursor-pointer rounded-lg hover:bg-gray-100 dark:hover:bg-opacity-5 transition-colors">
             Logout
           </div>
         </div>

@@ -1,17 +1,22 @@
 export const client = {
-  SERVER_URL: import.meta.env.VITE_SERVER_URL,
+  SERVER_URL: "http://localhost:8080",
   tokens: {
-    accessToken: "",
-    refreshToken: "",
+    accessToken:
+      JSON.parse(localStorage.getItem("accessToken") as string) ?? "",
+    refreshToken:
+      JSON.parse(localStorage.getItem("refreshToken") as string) ?? "",
   },
-  setTokens(accessToken: string, refreshToken: string) {
-    this.tokens = { accessToken, refreshToken };
-  },
-  async send(path: string, method: methodType = "GET", payload: IThunkPayload = {}) {
-    const { headers = {}, body, query = {} } = payload
+  async send(
+    path: string,
+    method: methodType = "GET",
+    payload: IThunkPayload = {}
+  ) {
+    const { headers = {}, body, query = {} } = payload;
 
-    let queryParams = new URLSearchParams(query as Record<string, string>).toString()
-    if(queryParams) queryParams = `?${queryParams}`
+    let queryParams = new URLSearchParams(
+      query as Record<string, string>
+    ).toString();
+    if (queryParams) queryParams = `?${queryParams}`;
 
     const options: IFetchOptions = {
       method,
@@ -28,7 +33,10 @@ export const client = {
       headers,
     });
 
-    const response = await fetch(`${this.SERVER_URL}${path}${queryParams}`, options);
+    const response = await fetch(
+      `${this.SERVER_URL}${path}${queryParams}`,
+      options
+    );
     if (!response.ok) {
       if (response.status == 401) {
         // Refresh Token
