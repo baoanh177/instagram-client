@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { icons } from "../../assets/icons";
@@ -35,8 +35,8 @@ const EditProfile = () => {
         onSubmit={handleSubmit}
       >
         {({ isSubmitting }) => (
-          <Form className="space-y-6 overflow-hidden">
-            <div className="w-[610px] h-[88px] p-4 mt-12 rounded-[20px] bg-[#EFEFEF] flex items-center md:flex md:items-center md:justify-between">
+          <Form className="space-y-6 ">
+            <div className="w-[658px] h-[88px] p-4 mt-12 rounded-[20px] bg-[#EFEFEF] flex items-center md:flex md:items-center md:justify-between">
               <div className="w-14 bg-white rounded-[50%] md:flex-shrink-0">
                 <img
                   src={photo ? URL.createObjectURL(photo) : icons.defaultAvatar}
@@ -49,7 +49,7 @@ const EditProfile = () => {
               </div>
               <label
                 htmlFor="photo"
-                className="w-[126px] font-semibold text-[14px] bg-[#0095F6] text-white rounded-[8px] cursor-pointer text-center md:mt-0 md:ml-4 md:flex-shrink-0 md:inline-block  md:w-auto px-4 md:px-6 md:py-3"
+                className="w-[126px] font-semibold text-[14px] bg-[#0095F6] text-white rounded-[8px] text-center md:mt-0 md:ml-4 md:flex-shrink-0 md:inline-block  md:w-auto px-4 md:px-6 md:py-3"
               >
                 Change Photo
                 <input
@@ -74,7 +74,7 @@ const EditProfile = () => {
                 type="text"
                 name="website"
                 placeholder="Website"
-                className="w-[610px] px-4 py-2 bg-[#EFEFEF] text-base border rounded-[10px]"
+                className="w-[658px] px-4 py-2 bg-[#EFEFEF] text-base border rounded-[10px]"
               />
               <ErrorMessage
                 name="website"
