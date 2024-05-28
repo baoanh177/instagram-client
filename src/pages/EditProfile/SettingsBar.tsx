@@ -281,11 +281,10 @@ const SettingsBar = ({
     if (path) {
       navigate(path);
     }
-    console.log(path);
   };
 
   return (
-    <div className="w-[315px] border-r my-11 h-[calc(93vh)] overflow-y-auto settings-container">
+    <div className="w-[315px] border-r my-11 h-[calc(95vh)] overflow-y-auto ">
       <div className="w-full">
         <span className="text-xl font-bold text-[#000000] ml-[45px]">
           Settings

@@ -6,9 +6,9 @@ const Parent = () => {
   const [selectedKey, setSelectedKey] = useState("edit-profile");
 
   return (
-    <div className="flex gap-3 ">
+    <div className="overflow-hidden h-screen flex gap-3">
       <SettingsBar selectedKey={selectedKey} setSelectedKey={setSelectedKey} />
-      <div className="flex-grow relative">
+      <div className="flex-grow">
         <Outlet />
       </div>
     </div>
