@@ -4,6 +4,7 @@ import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../stores/stores";
 import { register } from "../../stores/thunks/auth.thunk";
+import { images } from "../../assets/images";
 
 const Register = () => {
   const dispatch = useDispatch<AppDispatch>()
@@ -43,8 +44,8 @@ const Register = () => {
     <div className="max-w-screen-lg m-auto">
       <div className="w-[350px] h-auto md:w-[350px] py-8 m-auto rounded border border-solid border-[#ddd] flex flex-col items-center mt-5">
         <img
-          className="w-[175px] h-[71px] mt-[37px]"
-          src="../../../public/assest/images/logo.png"
+          className="w-[175px] h-[51px] mt-[37px]"
+          src={images.logo}
           alt="logo"
         />
         <div className="w-[348] h-auto">
@@ -54,7 +55,7 @@ const Register = () => {
             </span>
             <button className="w-[268px] h-8 bg-[#0095f6] border-none text-sm font-extrabold text-white rounded mt-4 flex items-center justify-center gap-2">
               <img
-                src="../../../public/assest/icons/icon-fb.png"
+                src="../../assest/icons/icon-fb.png"
                 className="w-[13px]"
                 alt=""
               />
@@ -165,14 +166,14 @@ const Register = () => {
         <div className="flex space-x-2">
           <div className="w-32 h-10 bg-gray-300 flex items-center justify-center">
             <img
-              src="../../../public/assest/images/img-appstore.png"
+              src={images.googlePlayBanned}
               alt="Google Play"
               className="h-full"
             />
           </div>
           <div className="w-32  bg-gray-300 flex items-center justify-center">
             <img
-              src="../../../public/assest/images/img-ggplay.png"
+              src={images.appStoreBanned}
               alt="Microsoft Store"
               className="h-full"
             />

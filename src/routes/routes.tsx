@@ -18,6 +18,10 @@ import ForgotPassword from "../pages/ForgotPassword/ForgotPassword";
 import Status from "../pages/Status";
 import Saved from "../pages/Saved";
 import Tagged from "../pages/Tagged";
+import Parent from "../pages/EditProfile";
+import EditProfile from "../pages/EditProfile/EditProfile";
+import Notifications from "../pages/EditProfile/Notifications";
+import MutedAccounts from "../pages/EditProfile/MutedAccounts";
 import ServerError from "../pages/Error/ServerError";
 import AuthMiddleware from "../middlewares/AuthMiddleware";
 
@@ -74,6 +78,10 @@ const renderRoutes = (routes: IRoute[], initPath = "/") => {
 
 const routes: IRoute[] = [
   {
+    path: "500",
+    element: ServerError
+  },
+  {
     path: "/",
     layout: DefaultLayout,
     middleware: AuthMiddleware,
@@ -109,48 +117,61 @@ const routes: IRoute[] = [
         middleware: AuthMiddleware,
         pages: [
           {
-            path: '/',
+            path: "/",
             element: Status,
           },
           {
-            path: '/tagged',
+            path: "/tagged",
             element: Tagged,
           },
           {
-            path: '/saved',
+            path: "/saved",
             element: Saved,
           },
-        ]
+        ],
+      },
+      {
+        path: "/editprofile",
+        layout: Parent,
+        pages: [
+          {
+            path: "/",
+            element: EditProfile,
+          },
+          {
+            path: "/notifications",
+            element: Notifications,
+          },
+          {
+            path: "/mutedaccounts",
+            element: MutedAccounts,
+          },
+        ],
       },
     ],
   },
   {
-    path: "/login",
-    element: Login,
+    path: "/",
     middleware: GuestMiddleware,
     layout: AuthLayout,
-  },
-  {
-    path: "/500",
-    element: ServerError,
-  },
-  {
-    path: "/register",
-    element: Register,
-    middleware: GuestMiddleware,
-    layout: AuthLayout,
-  },
-  {
-    path: "/verify",
-    element: Verify,
-    middleware: GuestMiddleware,
-    layout: AuthLayout,
-  },
-  {
-    path: "/password/reset",
-    element: ForgotPassword,
-    middleware: GuestMiddleware,
-    layout: AuthLayout,
+    pages: [
+      {
+        path: "/login",
+        element: Login,
+      },
+      {
+        path: "/register",
+        element: Register,
+      },
+      {
+        path: "/verify",
+        element: Verify,
+      },
+      {
+        path: "/password/reset",
+        element: ForgotPassword,
+      },
+    ],
   },
 ];
 
