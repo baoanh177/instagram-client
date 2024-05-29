@@ -39,7 +39,6 @@ const renderRoutes = (routes: IRoute[], initPath = "/") => {
         const completePath = (initPath + path).replaceAll("//", "/");
         return (
           <Fragment key={index}>
-            {/* <Route path="*" element={<NotFound />} /> */}
             {Layout ? (
               <Route path="/" element={<Layout />}>
                 {Middleware ? (
@@ -84,7 +83,6 @@ const routes: IRoute[] = [
   {
     path: "/",
     layout: DefaultLayout,
-    // middleware: AuthMiddleware,
     pages: [
       {
         path: "/",
