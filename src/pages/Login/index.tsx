@@ -86,7 +86,7 @@ const Login = () => {
               onSubmit={handleSubmit}
             >
               {({ isSubmitting }) => (
-                <Form className="w-full flex flex-col space-y-2">
+                <Form className="w-full flex flex-col  space-y-1">
                   <Field
                     type="text"
                     name="email"
@@ -96,7 +96,7 @@ const Login = () => {
                   <ErrorMessage
                     name="email"
                     component="div"
-                    className="text-red-500 pl-[2.5px] text-xs"
+                    className="text-red-500 pl-[2.5px] text-xs pb-3"
                   />
 
                   <Field
@@ -108,7 +108,7 @@ const Login = () => {
                   <ErrorMessage
                     name="password"
                     component="div"
-                    className="text-red-500 pl-[2.5px] text-xs"
+                    className="text-red-500 pl-[2.5px] text-xs pb-3"
                   />
 
                   <button
