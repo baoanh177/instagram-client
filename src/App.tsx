@@ -19,7 +19,6 @@ const App = () => {
       case AuthActions.LOGOUT:
         navigate('/login')
         break;
-
       default:
         break;
     }
