@@ -8,8 +8,6 @@ export const login = createAsyncThunk(
   async (payload: IThunkPayload, thunkAPI) => {
     try {
       const { data } = await client.post(`${prefix}/login`, payload);
-      console.log(data);
-
       return data;
     } catch (error: any) {
       return thunkAPI.rejectWithValue(error.response.data);
