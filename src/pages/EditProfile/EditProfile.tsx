@@ -21,7 +21,7 @@ const EditProfile = () => {
   const handlePhotoChange = (event: any) => {
     setPhoto(event.currentTarget.files[0]);
   };
-  const handleSubmit = (values: any, actions: any) => {
+  const handleSubmit = (values, actions) => {
     console.log("Form values:", values);
     actions.setSubmitting(false);
   };
