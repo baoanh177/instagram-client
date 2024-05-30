@@ -21,7 +21,7 @@ const SettingsBar = ({
         {
           key: "edit-profile",
           label: "Edit Profile",
-          path: "editprofile",
+          path: "settings",
           icon: (
             <img
               className="ml-1 w-[20px]"
@@ -33,7 +33,7 @@ const SettingsBar = ({
         {
           key: "notifications",
           label: "notifications",
-          path: "editprofile/notifications",
+          path: "settings/notifications",
           icon: (
             <img className="w-[26px]" src={icons.bell} alt="notifications" />
           ),
@@ -47,7 +47,7 @@ const SettingsBar = ({
         {
           key: "muted-accounts",
           label: "Muted accounts",
-          path: "editprofile/mutedaccounts",
+          path: "settings/mutedaccounts",
           icon: <img className="w-[28px]" src={icons.bell2} alt="bell2" />,
         },
         {
@@ -273,7 +273,6 @@ const SettingsBar = ({
       ],
     },
   ];
-  console.log(settingsItems);
 
   const handleMenuClick = (key: string, path?: string) => {
     setSelectedKey(key);

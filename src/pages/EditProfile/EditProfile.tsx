@@ -18,14 +18,13 @@ const EditProfile = () => {
     gender: Yup.string().required("Please select a gender"),
   });
 
-  const handlePhotoChange = (event) => {
+  const handlePhotoChange = (event: any) => {
     setPhoto(event.currentTarget.files[0]);
   };
   const handleSubmit = (values, actions) => {
     console.log("Form values:", values);
     actions.setSubmitting(false);
   };
-
   return (
     <div className="w-[706px] m-auto py-9 px-12 sm:px-6">
       <span className="text-xl font-bold">Edit Profile</span>
@@ -87,6 +86,7 @@ const EditProfile = () => {
                 your bio.
               </p>
             </div>
+
             <div>
               <label htmlFor="bio" className="block text-base font-bold mt-2">
                 Bio
@@ -115,7 +115,7 @@ const EditProfile = () => {
               <Field
                 as="select"
                 name="gender"
-                className="w-full py-2 px-4 border border-gray-300 rounded-lg text-base bg-white appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                className="w-full py-2 px-4 border  border-gray-300 rounded-lg text-base bg-white appearance-none"
               >
                 <option value="" disabled>
                   Select gender
@@ -177,6 +177,16 @@ const EditProfile = () => {
           </Form>
         )}
       </Formik>
+      <div className="mt-12 text-center text-gray-500 text-sm">
+        <p className="mb-2">Meta</p>
+        <p className="mb-2">
+          About · Blog · Jobs · Help · API · Privacy · Terms · Locations ·
+          Instagram Lite · Threads · Contact Uploading & Non-Users · Meta
+          Verified
+        </p>
+        <p className="mb-2">English</p>
+        <p>© 2024 Instagram from Meta</p>
+      </div>
     </div>
   );
 };

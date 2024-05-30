@@ -108,7 +108,6 @@ const Sidebar = ({
       icon: <FaRegUserCircle className="dark:text-white text-2xl" />,
     },
   ];
-
   return (
     <>
       <div
@@ -122,7 +121,9 @@ const Sidebar = ({
         <div
           className={clsx(
             "transition-size md:h-7 hidden md:flex",
-            menuDetail ? "md:justify-center" : "md:justify-center lg:justify-normal lg:pl-6"
+            menuDetail
+              ? "md:justify-center"
+              : "md:justify-center lg:justify-normal lg:pl-6"
           )}
         >
           <Link to="/">
@@ -132,12 +133,14 @@ const Sidebar = ({
               className={clsx(menuDetail ? "block" : "block lg:hidden")}
               onClick={() => setActiveMenu("home")}
             />
-            {!menuDetail && <img
-              src={theme == "dark" ? images.logoLight : images.logo}
-              alt="Instagram"
-              className="hidden lg:block"
-              onClick={() => setActiveMenu("home")}
-            />}
+            {!menuDetail && (
+              <img
+                src={theme == "dark" ? images.logoLight : images.logo}
+                alt="Instagram"
+                className="hidden lg:block"
+                onClick={() => setActiveMenu("home")}
+              />
+            )}
           </Link>
         </div>
         <div className="flex-1 md:mt-8">
@@ -148,7 +151,9 @@ const Sidebar = ({
                   key={index}
                   className={clsx(
                     "flex gap-4 p-3 cursor-pointer rounded-lg md:hover:bg-gray-100 dark:hover:bg-opacity-10 transition-colors",
-                    menuDetail ? "justify-center" : "justify-center lg:justify-start",
+                    menuDetail
+                      ? "justify-center"
+                      : "justify-center lg:justify-start",
                     menuDetail == item.key &&
                       "md:border-2 md:border-gray-500 dark:border-gray-700",
                     activeMenu == item.key &&

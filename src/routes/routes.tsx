@@ -18,10 +18,10 @@ import ForgotPassword from "../pages/ForgotPassword/ForgotPassword";
 import Status from "../pages/Status";
 import Saved from "../pages/Saved";
 import Tagged from "../pages/Tagged";
-import Parent from "../pages/EditProfile";
 import EditProfile from "../pages/EditProfile/EditProfile";
 import Notifications from "../pages/EditProfile/Notifications";
 import MutedAccounts from "../pages/EditProfile/MutedAccounts";
+import Settings from "../pages/EditProfile";
 
 const renderRoutes = (routes: IRoute[], initPath = "/") => {
   return (
@@ -124,8 +124,8 @@ const routes: IRoute[] = [
         ],
       },
       {
-        path: "/editprofile",
-        layout: Parent,
+        path: "/settings",
+        layout: Settings,
         pages: [
           {
             path: "/",

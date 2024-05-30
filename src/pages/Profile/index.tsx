@@ -77,7 +77,7 @@ const Profile = () => {
         <div className="flex flex-col gap-6">
           <div className="flex gap-4 items-center">
             <div className="text-[18px]">gwenkalong</div>
-            <Link to="/editprofile">
+            <Link to="/settings">
               <button className="bg-[#EFEFEF] font-semibold text-[14px] px-2 py-1 rounded-lg">
                 Edit Profile
               </button>
