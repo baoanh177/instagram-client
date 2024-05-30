@@ -4,7 +4,6 @@ import Menu from "./Menu";
 import { Link, Outlet } from "react-router-dom";
 
 const Profile = () => {
-  const [menuDetail, setMenuDetail] = useState<string>("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
@@ -12,12 +11,25 @@ const Profile = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+  const Follower = () => (
+    <div className="flex border-t sm:border-none sm:py-0 py-2 justify-around">
+      <div className="flex-1 text-[14px] sm:text-[16px] flex sm:flex-row flex-col items-center">
+        <span className="font-semibold pr-1">10</span>post
+      </div>
+      <div className="flex-1 text-[14px] sm:text-[16px] flex sm:flex-row flex-col items-center">
+        <span className="font-semibold pr-1">17</span>followers
+      </div>
+      <div className="flex-1 text-[14px] sm:text-[16px] flex sm:flex-row flex-col items-center">
+        <span className="font-semibold pr-1">100</span>following
+      </div>
+    </div>
+  )
   return (
-    <div className="max-w-screen-md mx-auto py-10">
-      <div className="flex gap-20">
-        <div>
+    <div className="max-w-screen-md mx-auto py-10 px-4">
+      <div className="flex gap-5 sm:gap-20">
+        <div className=" shrink-0">
           <img
-            className="w-[150px] h-[150px]"
+            className="w-[77px] h-[77px] sm:w-[150px] sm:h-[150px]"
             src={icons.defaultAvatar}
             alt="default avatar"
             onClick={toggleModal}
@@ -32,7 +44,7 @@ const Profile = () => {
               className="bg-white p-4 rounded-lg shadow-lg"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="w-[400px] p-6 rounded-lg  flex flex-col items-center">
+              <div className="w-[400px] p-3 rounded-lg  flex flex-col items-center">
                 <img
                   className="w-[56px] h-[56px] rounded-full"
                   src={icons.defaultAvatar}
@@ -75,31 +87,25 @@ const Profile = () => {
           </div>
         )}
         <div className="flex flex-col gap-6">
-          <div className="flex gap-4 items-center">
-            <div className="text-[18px]">gwenkalong</div>
-            <Link to="/editprofile">
+          <div className="sm:flex items-center">
+            <div className="text-[18px] sm:pb-0 pb-3 pr-3">gwenkalong</div>
+            <div className="flex gap-4">
+              <Link to="/editprofile">
+                <button className="bg-[#EFEFEF] font-semibold text-[14px] px-2 py-1 rounded-lg">
+                  Edit Profile
+                </button>
+              </Link>
               <button className="bg-[#EFEFEF] font-semibold text-[14px] px-2 py-1 rounded-lg">
-                Edit Profile
+                View archive
               </button>
-            </Link>
-            <button className="bg-[#EFEFEF] font-semibold text-[14px] px-2 py-1 rounded-lg">
-              View archive
-            </button>
-            <button>
-              <img src={icons.setting} alt="" />
-            </button>
-          </div>
-          <div className="flex gap-12 ">
-            <div>
-              <span className="font-semibold">10</span> post
-            </div>
-            <div>
-              <span className="font-semibold">17</span> followers
-            </div>
-            <div>
-              <span className="font-semibold">100</span> following
+              <button>
+                <img src={icons.setting} alt="" />
+              </button>
             </div>
           </div>
+          <div className="hidden sm:block"><Follower /></div>
+
+
           <div className="flex flex-col gap-2">
             <div className="font-semibold">Nguyễn Duy Long</div>
             <div className="text-sm">Hello 500 bro</div>
@@ -112,10 +118,10 @@ const Profile = () => {
           </div>
         </div>
       </div>
-      <div className=" w-[87px] mt-20 h-[118px] flex flex-col text-center gap-2">
+      <div className="w-[56px] sm:w-[87px] h-[auto] sm:h-[118px] sm:mt-20 mt-5 flex flex-col items-center justify-center gap-2">
         <svg
           aria-label="Biểu tượng dấu cộng"
-          className="p-5 w-full border rounded-[50%] bg-[#FAFAFA]"
+          className="p-5 w-[56px] sm:w-[87px] h-[56px] sm:h-[87px] border rounded-full bg-[#FAFAFA]"
           fill="#ccc"
           role="img"
           viewBox="0 0 24 24"
@@ -125,9 +131,12 @@ const Profile = () => {
         </svg>
         <div className="text-[12px] font-semibold">New</div>
       </div>
+
       <div className="pt-12">
-        <div className="border-t "></div>
-        <Menu menuDetail={menuDetail} setMenuDetail={setMenuDetail} />
+        <div className="block sm:hidden ">
+          <Follower />
+        </div>
+        <Menu />
         <div>
           <Outlet />
         </div>

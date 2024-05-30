@@ -112,7 +112,7 @@ const routes: IRoute[] = [
       {
         path: "/profile",
         layout: Profile,
-        middleware: AuthMiddleware,
+        // middleware: AuthMiddleware,
         pages: [
           {
             path: "/",
