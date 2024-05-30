@@ -26,7 +26,7 @@ const EditProfile = () => {
     actions.setSubmitting(false);
   };
   return (
-    <div className="w-[706px] m-auto py-9 px-12 sm:px-6">
+    <div className="w-[706px] m-auto py-9 px-12 sm:px-6 h-full overflow-y-scroll">
       <span className="text-xl font-bold">Edit Profile</span>
       <Formik
         initialValues={initialValues}
