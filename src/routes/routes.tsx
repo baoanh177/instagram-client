@@ -18,10 +18,10 @@ import ForgotPassword from "../pages/ForgotPassword/ForgotPassword";
 import Status from "../pages/Status";
 import Saved from "../pages/Saved";
 import Tagged from "../pages/Tagged";
-import EditProfile from "../pages/EditProfile/EditProfile";
 import Notifications from "../pages/EditProfile/Notifications";
 import MutedAccounts from "../pages/EditProfile/MutedAccounts";
 import Settings from "../pages/EditProfile";
+import EditProfile from "../pages/EditProfile/EditProfile";
 
 const renderRoutes = (routes: IRoute[], initPath = "/") => {
   return (
