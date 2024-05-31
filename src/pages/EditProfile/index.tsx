@@ -8,7 +8,7 @@ const Settings = () => {
   return (
     <div className="flex h-screen">
       <SettingsBar selectedKey={selectedKey} setSelectedKey={setSelectedKey} />
-      <div className="flex-grow">
+      <div className="flex-grow h-full overflow-y-scroll">
         <Outlet />
       </div>
     </div>
