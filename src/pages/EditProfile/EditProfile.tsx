@@ -177,7 +177,7 @@ const EditProfile = () => {
           </Form>
         )}
       </Formik>
-      <div className="mt-12 text-center text-gray-500 text-sm">
+      <div className="mt-12 text-center text-gray-400 text-sm">
         <p className="mb-2">Meta</p>
         <p className="mb-2">
           About · Blog · Jobs · Help · API · Privacy · Terms · Locations ·
