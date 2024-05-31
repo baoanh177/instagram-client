@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { login, logout, register } from "../thunks/auth.thunk";
+import { login, logout, register, verify } from "../thunks/auth.thunk";
 import { AuthActions, Status } from "../../models/index.model";
 
 const accessToken = localStorage.getItem("accessToken");
@@ -69,6 +69,22 @@ const authSlice = createSlice({
       .addCase(logout.rejected, (state) => {
         state.status = Status.REJECTED;
         state.message = "An error occurred, please try again later";
+      });
+    builder
+      .addCase(verify.pending, (state, { payload }) => {
+        console.log("🚀 ~ .addCase ~ state, { payload }:", state, { payload });
+        console.log("Pending");
+        //TODO: set Status
+      })
+      .addCase(verify.fulfilled, (state, { payload }) => {
+        console.log("🚀 ~ .addCase ~ state, { payload }:", state, { payload });
+        console.log("Fulfilled");
+        state.user = payload.metaData.userData
+      })
+      .addCase(verify.rejected, (state, { payload }) => {
+        console.log("🚀 ~ .addCase ~ state, { payload }:", state, { payload });
+        console.log("Rejected");
+        //TODO: set Status
       });
   },
 });

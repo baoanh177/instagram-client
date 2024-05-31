@@ -14,7 +14,8 @@ const App = () => {
   useEffect(() => {
     switch (action) {
       case AuthActions.REGISTER:
-        navigate('/login')
+        alert('vui lòng kiểm tra email để kích hoạt tài khoản')
+        // navigate('/verify')
         break;
       case AuthActions.LOGOUT:
         navigate('/login')

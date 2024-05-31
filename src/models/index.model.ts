@@ -9,6 +9,7 @@ export enum AuthActions {
   LOGIN = "login",
   LOGOUT = "logout",
   REGISTER = "register",
+  VERIFY = "verify"
 }
 export enum Gender {
   MALE = 0,
