@@ -26,11 +26,24 @@ export const register = createAsyncThunk(
     }
   }
 );
-export const logout = createAsyncThunk("logout", async (_, thunkAPI) => {
+export const logout = createAsyncThunk("logout", async (__payload, thunkAPI) => {
   try {
-    const { data } = await client.post(`${prefix}/logout`);
+    const { data } = await client.post(`${prefix}/logout`,);
     return data;
   } catch (error: any) {
     return thunkAPI.rejectWithValue(error.response.data);
   }
 });
+export const verify = createAsyncThunk(
+  "verifyCode",
+  async (payload: IThunkPayload, thunkAPI) => {
+    try {
+      console.log(payload);
+      const { data } = await client.post(`${prefix}/verifyCode`, payload);
+      console.log(data);
+      return data;  
+    } catch (error: any) {
+      return thunkAPI.rejectWithValue(error.response.data);
+    }
+  }
+);
