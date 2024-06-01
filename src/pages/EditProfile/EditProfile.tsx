@@ -177,6 +177,16 @@ const EditProfile = () => {
           </Form>
         )}
       </Formik>
+      <div className="mt-12 text-center text-gray-400 text-sm">
+        <p className="mb-2">Meta</p>
+        <p className="mb-2">
+          About · Blog · Jobs · Help · API · Privacy · Terms · Locations ·
+          Instagram Lite · Threads · Contact Uploading & Non-Users · Meta
+          Verified
+        </p>
+        <p className="mb-2">English</p>
+        <p>© 2024 Instagram from Meta</p>
+      </div>
     </div>
   );
 };
