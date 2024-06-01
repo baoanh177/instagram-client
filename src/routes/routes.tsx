@@ -24,6 +24,7 @@ import Notifications from "../pages/EditProfile/Notifications";
 import MutedAccounts from "../pages/EditProfile/MutedAccounts";
 import ServerError from "../pages/Error/ServerError";
 import AuthMiddleware from "../middlewares/AuthMiddleware";
+import Settings from "../pages/EditProfile";
 
 const renderRoutes = (routes: IRoute[], initPath = "/") => {
   return (
@@ -78,7 +79,7 @@ const renderRoutes = (routes: IRoute[], initPath = "/") => {
 const routes: IRoute[] = [
   {
     path: "500",
-    element: ServerError
+    element: ServerError,
   },
   {
     path: "/",
@@ -129,8 +130,8 @@ const routes: IRoute[] = [
         ],
       },
       {
-        path: "/editprofile",
-        layout: Parent,
+        path: "/settings",
+        layout: Settings,
         pages: [
           {
             path: "/",

@@ -23,7 +23,7 @@ const Profile = () => {
         <span className="font-semibold pr-1">100</span>following
       </div>
     </div>
-  )
+  );
   return (
     <div className="max-w-screen-md mx-auto py-10 px-4">
       <div className="flex gap-5 sm:gap-20">
@@ -90,7 +90,7 @@ const Profile = () => {
           <div className="sm:flex items-center">
             <div className="text-[18px] sm:pb-0 pb-3 pr-3">gwenkalong</div>
             <div className="flex gap-4">
-              <Link to="/editprofile">
+              <Link to="/settings">
                 <button className="bg-[#EFEFEF] font-semibold text-[14px] px-2 py-1 rounded-lg">
                   Edit Profile
                 </button>
@@ -103,8 +103,9 @@ const Profile = () => {
               </button>
             </div>
           </div>
-          <div className="hidden sm:block"><Follower /></div>
-
+          <div className="hidden sm:block">
+            <Follower />
+          </div>
 
           <div className="flex flex-col gap-2">
             <div className="font-semibold">Nguyễn Duy Long</div>
