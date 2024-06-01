@@ -12,6 +12,17 @@ import logoLight from "./logo-light.svg";
 import logoShortLight from "./logo-short-light.svg";
 import imgLock from "./img-lock.png";
 import meta from "./meta.png";
+import catExplore from "./img-cat-explore.jpeg";
+import palmExplore from "./explore-palm.jpeg";
+import palm2Explore from "./palm2-explore.jpeg";
+import palm3Explore from "./palm3-explore.jpeg";
+import dogcute from "./dogcute.jpeg";
+import imgGirl from "./img-girl.jpeg";
+import imgGirl1 from "./img-girl1.jpeg";
+import imgMeme from "./img-meme.jpeg";
+import imgRafah from "./img-rafah.jpeg";
+import imgCemento from "./img-cemento.jpeg";
+
 export const images = {
   logo,
   appStoreBanned,
@@ -29,4 +40,14 @@ export const images = {
   logoGoogle,
   logoLight,
   logoShortLight,
+  catExplore,
+  palmExplore,
+  palm2Explore,
+  palm3Explore,
+  dogcute,
+  imgGirl,
+  imgGirl1,
+  imgMeme,
+  imgRafah,
+  imgCemento,
 };
